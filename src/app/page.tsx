@@ -163,7 +163,7 @@ const NewsSection = () => {
 }
 
 const Partners = () => (
-    <section className="bg-white py-12 px-8 lg:px-20">
+    <section className="bg-white py-12 px-8 lg:px-20 text-black">
         <div className="container mx-auto grid grid-cols-2 gap-16">
             {/* Implementing partner */}
             <div className="flex flex-col items-center space-y-6">
