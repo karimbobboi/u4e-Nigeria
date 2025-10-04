@@ -2,11 +2,8 @@
 import Image from "next/image";
 import GlanceSection from "./components/GlanceSection";
 import Footer from "./components/footer";
-import { FiX } from "react-icons/fi";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import NavBar from "./components/NavBar";
+import Navbar from "./components/navbar";
 
 type NewsItem = {
   id: string;               
@@ -198,44 +195,15 @@ const Partners = () => (
 
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <main className="relative min-h-screen font-montserrat">
-		{/* Navbar */}
-    	<NavBar menu={menuOpen} changeMenu={setMenuOpen}/>
-
-            {/* Mobile slide-in menu */}
-		<AnimatePresence>
-        {menuOpen && (
-			<motion.div
-				initial={{ x: "-100%" }}   
-				animate={{ x: 0 }}         
-				exit={{ x: "-100%" }}      
-				transition={{ type: "tween", duration: 0.3 }}
-				className="fixed top-0 left-0 h-full w-3/4 bg-[#044D28]/90 text-white shadow-lg z-50 p-8 flex flex-col space-y-6"
-			>
-				<button
-				className="self-end mb-6"
-				onClick={() => setMenuOpen(false)}
-				>
-				<FiX size={28} />
-				</button>
-				<a href="#" className="hover:text-gray-300">About</a>
-				<a href="#" className="hover:text-gray-300">News</a>
-				<a href="#" className="hover:text-gray-300">Stories</a>
-				<a href="#" className="hover:text-gray-300">Resources</a>
-				<a href="#" className="hover:text-gray-300">Contact us</a>
-			</motion.div>
-        )}
-		</AnimatePresence>
+    	<Navbar />
 
       {/* Hero Section */}
       <section className="relative min-h-[95vh] flex items-center justify-start px-12 text-white">
         {/* Background image */}
         <div className="absolute inset-0 -z-10">
           <Image
-            // src="/panelsongrass.jpg"
             src="/mathias-owa-martins-WeEu-3KVhkE-unsplash.jpg"
             alt="Cityscape"
             fill
